@@ -8,6 +8,8 @@ import {
   Users,
 } from "lucide-react";
 
+import { motion } from "framer-motion";
+
 const SIDEBAR_ITEMS = [
   {
     name: "Overview",
@@ -24,10 +26,16 @@ const SIDEBAR_ITEMS = [
 ];
 
 const Sidebar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-    
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-  return <div></div>;
+  return (
+    <motion.div
+      className={`relative z-10 transition-all duration-300 ease-in-out flex-shrink-0 ${
+        isSidebarOpen ? "w-64" : "w-20"
+      }`}
+      animate={{ width: isSidebarOpen ? 256 : 80 }}
+    ></motion.div>
+  );
 };
 
 export default Sidebar;
